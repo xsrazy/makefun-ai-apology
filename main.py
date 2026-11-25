@@ -119,7 +119,10 @@ def validate(text: str) -> None:
 
     The gate requires UTF-8 text of 1 to 159 characters that is not
     only whitespace, and this bounty wants exactly one line, so the
-    text must contain no newline characters at all.
+    text must contain no newline characters at all. The task also
+    forbids the em dash character anywhere in the entry. The plain
+    ASCII check below already rejects it, but the explicit check
+    keeps the rule visible and gives a clear failure message.
     """
     if not isinstance(text, str):
         raise ValueError("entry must be a string")
